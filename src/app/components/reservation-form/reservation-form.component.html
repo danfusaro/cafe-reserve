@@ -1,0 +1,83 @@
+<form [formGroup]="reservationForm" (ngSubmit)="submit()">
+  <label>First Name: 
+    <input formControlName="first">
+    <div *ngIf="first.invalid && (first.dirty || first.touched)" class="alert alert-danger">
+
+      <div *ngIf="first.errors.required">
+        First Name is required.
+      </div>
+      <div *ngIf="first.errors.minlength">
+        First Name must be at least 2 characters long.
+      </div>
+    </div>
+  </label>
+  <label>Last Name: 
+    <input formControlName="last">
+    <div *ngIf="last.invalid && (last.dirty || last.touched)" class="alert alert-danger">
+    <div *ngIf="last.errors.required">
+      Last Name is required.
+    </div>
+    <div *ngIf="last.errors.minlength">
+      Last Name must be at least 2 characters long.
+    </div>
+  </div>
+  </label>
+  <label>Address 1: 
+    <input formControlName="address1">
+    <div *ngIf="address1.invalid && (address1.dirty || address1.touched)" class="alert alert-danger">
+    <div *ngIf="address1.errors.required">
+      An address is required.
+    </div>
+  </div>
+  </label>
+
+  <label>Address 2: 
+    <input formControlName="address2">
+  </label>
+  <label>City: 
+    <input formControlName="city">
+    <div *ngIf="city.invalid && (city.dirty || city.touched)" class="alert alert-danger">
+    <div *ngIf="city.errors.required">
+      City is required.
+    </div>
+  </div>
+  </label>
+
+  <label>State: 
+    <input formControlName="state">
+    <div *ngIf="state.invalid && (state.dirty || state.touched)" class="alert alert-danger">
+    <div *ngIf="state.errors.required">
+      State is required.
+    </div>
+    <div *ngIf="state.errors.maxLength">
+      Please use state abbreviation (max 2 characters).
+    </div>
+  </div>
+  </label>
+
+  <label>Phone: 
+    <input formControlName="phone">
+    <div *ngIf="phone.invalid && (phone.dirty || phone.touched)" class="alert alert-danger">
+    <div *ngIf="phone.errors.required">
+      Phone number is required.
+    </div>
+    <div *ngIf="phone.errors.pattern">
+      Phone number should be in 555-555-5555 format.
+    </div>
+  </div>
+  </label>
+
+  <label>Email: 
+    <input formControlName="email">
+     <div *ngIf="email.invalid && (email.dirty || email.touched)" class="alert alert-danger">
+    <div *ngIf="email.errors.required">
+      Email is required.
+    </div>
+    <div *ngIf="email.errors.email">
+      Please enter a valid email address.
+    </div>
+  </div>
+  </label>
+
+  <button type="submit" [disabled]="reservationForm.pristine">Submit</button>
+</form>
